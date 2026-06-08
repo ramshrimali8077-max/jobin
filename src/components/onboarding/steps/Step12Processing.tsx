@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useOnboardingStore } from '@/store/useOnboardingStore';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { WordReveal } from '@/components/ui/WordReveal';
 
 
 const steps = [

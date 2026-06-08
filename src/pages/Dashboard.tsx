@@ -1,5 +1,5 @@
 import { useAuth } from '../context/AuthContext';
-import { Navigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Mail, Briefcase, Send, MessageSquare, FileText, Settings, LogOut, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 

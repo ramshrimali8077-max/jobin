@@ -1,6 +1,7 @@
 import { useOnboardingStore } from '@/store/useOnboardingStore';
 import { UploadCloud, Briefcase } from 'lucide-react';
 import { WordReveal } from '@/components/ui/WordReveal';
+import { AnswerReveal } from '@/components/ui/AnswerReveal';
 
 
 export function Step1Welcome() {
