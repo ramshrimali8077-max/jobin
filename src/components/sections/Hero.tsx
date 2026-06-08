@@ -32,7 +32,7 @@ export function Hero() {
   }, []);
   
   return (
-    <section ref={heroRef} className="relative h-screen min-h-[600px] flex flex-col font-sans bg-[#EFEFEF] overflow-hidden group">
+    <section ref={heroRef} className="relative h-[100dvh] min-h-[600px] flex flex-col font-sans bg-[#EFEFEF] overflow-hidden group">
       {/* STATIC FALLBACK GRADIENT */}
       <div className="absolute inset-0 z-10 pointer-events-none opacity-30 mix-blend-multiply bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-200 via-[#EFEFEF] to-[#EFEFEF]" />
       

@@ -62,7 +62,7 @@ export function OnboardingWizard() {
   }, [step]);
 
   return (
-    <div ref={containerRef} className="h-screen w-full bg-[#FDFDFD] text-gray-900 flex flex-col font-sans overflow-hidden relative group">
+    <div ref={containerRef} className="h-[100dvh] w-full bg-[#FDFDFD] text-gray-900 flex flex-col font-sans overflow-hidden relative group">
       {/* STATIC FALLBACK GRADIENT */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.15] mix-blend-multiply bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-200 via-[#FDFDFD] to-[#FDFDFD]" />
       
