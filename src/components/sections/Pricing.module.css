@@ -1,0 +1,257 @@
+.section {
+  padding-top: var(--spacing-section-gap);
+  padding-bottom: var(--spacing-section-gap);
+  position: relative;
+}
+
+.header {
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.eyebrow-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-text-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eyebrow-text {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px solid rgba(11, 37, 64, 0.1);
+  color: var(--color-text-secondary);
+}
+
+.desc {
+  color: var(--color-text-secondary);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 24px auto 0;
+}
+
+.toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 64px;
+}
+
+.toggle-bg {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 4px;
+  border-radius: 9999px;
+  display: flex;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: calc(50% - 4px);
+  background: var(--color-text-primary);
+  border-radius: 9999px;
+  transition: transform var(--transition-fast);
+}
+
+.toggle-btn {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: none;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-radius: 9999px;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-btn.active {
+  color: white;
+}
+
+.save-badge {
+  background: white;
+  color: var(--color-text-primary);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-popular {
+  background: var(--color-text-primary);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-elevated);
+}
+
+.card-popular:hover {
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-6px);
+}
+
+.badge {
+  background: var(--gradient-signature);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+
+.plan-name {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.card-popular .plan-name {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.price {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.card-popular .price {
+  color: white;
+}
+
+.period {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.card-popular .period {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.plan-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 32px;
+  min-height: 48px;
+}
+
+.card-popular .plan-desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex: 1;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--color-text-primary);
+}
+
+.card-popular .feature {
+  color: white;
+}
+
+.feature-icon {
+  color: var(--color-text-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.card-popular .feature-icon {
+  color: white;
+}
+
+.card-btn {
+  background: var(--color-surface-base);
+  color: var(--color-text-primary);
+  border: none;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-standard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: inherit;
+  width: 100%;
+}
+
+.card-popular .card-btn {
+  background: white;
+  color: var(--color-text-primary);
+}
+
+.card-btn:hover {
+  transform: translateY(-2px);
+  background: white;
+  box-shadow: var(--shadow-soft);
+}
+
+.card-popular .card-btn:hover {
+  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
