@@ -101,7 +101,7 @@ export function OnboardingWizard() {
       <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between shrink-0 bg-[#FDFDFD]/90 backdrop-blur-sm">
         <Link to="/" className="flex items-center gap-3 font-semibold text-[15px] text-gray-900 hover:opacity-80 transition-opacity">
           <img src="/logo-icon.png" alt="Logo" className="h-8 w-auto object-contain mix-blend-multiply shrink-0" />
-          <span>Job Mail Loop</span>
+          <span className="hidden sm:inline">Job Mail Loop</span>
         </Link>
         
         {step <= totalSteps && (

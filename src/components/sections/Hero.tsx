@@ -56,9 +56,9 @@ export function Hero() {
 
       {/* CONTENT */}
       <div className="relative z-20 w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 pb-14 sm:pb-16 lg:pb-20">
-        <div className="mb-6 sm:mb-10 flex items-center justify-start gap-4">
-          <img src="/logo-icon.png" alt="Job Mail Loop Logo" className="w-[68px] h-[68px] object-contain mix-blend-multiply drop-shadow-sm shrink-0" />
-          <span className="text-[30px] font-bold text-gray-900 tracking-tight leading-none">Job Mail Loop</span>
+        <div className="mb-6 sm:mb-10 flex items-center justify-start gap-3 sm:gap-4">
+          <img src="/logo-icon.png" alt="Job Mail Loop Logo" className="w-[48px] h-[48px] sm:w-[68px] sm:h-[68px] object-contain mix-blend-multiply drop-shadow-sm shrink-0" />
+          <span className="text-[24px] sm:text-[30px] font-bold text-gray-900 tracking-tight leading-none">Job Mail Loop</span>
         </div>
 
         <h1 className="text-gray-900 font-medium tracking-[-0.03em] leading-[1.08] text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)]">
