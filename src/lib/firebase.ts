@@ -11,6 +11,18 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+// Check if Firebase config is provided to avoid crashing the app if environment variables are missing
+const isFirebaseConfigured = Boolean(firebaseConfig.apiKey);
+
+let app;
+let authInstance = null;
+
+try {
+  app = isFirebaseConfigured ? initializeApp(firebaseConfig) : initializeApp({ apiKey: 'dummy', projectId: 'dummy' });
+  authInstance = getAuth(app);
+} catch (error) {
+  console.warn('Firebase initialization failed. Please check environment variables.', error);
+}
+
+export const auth = authInstance;
 export const googleProvider = new GoogleAuthProvider();
