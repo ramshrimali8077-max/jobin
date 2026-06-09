@@ -98,7 +98,7 @@ export function OnboardingWizard() {
       )}
 
       {/* Header (Fixed) */}
-      <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between shrink-0 bg-indigo-50/40/90 backdrop-blur-sm">
+      <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between shrink-0 bg-white/90 backdrop-blur-sm border-b border-gray-100">
         <Link to="/" className="flex items-center gap-3 font-semibold text-[15px] text-brand-dark hover:opacity-80 transition-opacity">
           <img src="/logo-icon.png" alt="Logo" className="h-8 w-auto object-contain mix-blend-multiply shrink-0" />
           <span className="hidden sm:inline bg-gradient-to-r from-[#2B83E4] via-[#7B46D1] to-[#D949A6] text-transparent bg-clip-text font-bold">Job Mail Loop</span>
