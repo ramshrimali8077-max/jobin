@@ -53,28 +53,34 @@ export function Dashboard() {
         <div className="w-full max-w-6xl mx-auto space-y-6">
           {/* STATS ROW */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="gradient-border-animated p-6 sm:p-8 flex flex-col items-center justify-center text-center group hover:scale-[1.02] transition-transform duration-500 rounded-3xl">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-accent-blue/20 to-accent-purple/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-                <Send className="text-accent-blue" size={24} />
+            <div className="glass-panel p-6 spotlight-border relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10 flex items-center justify-between mb-4">
+                <span className="text-gray-400 font-medium">Active Campaigns</span>
+                <Send size={20} className="text-accent-blue" />
               </div>
-              <div className="text-4xl font-bold text-white mb-2 tracking-tight"><AnimatedCounter end={3} /></div>
-              <p className="text-gray-400 text-sm font-medium">Active Campaigns</p>
+              <div className="relative z-10 text-4xl font-bold text-white mb-1"><AnimatedCounter end={3} /></div>
+              <div className="relative z-10 text-[13px] text-accent-blue flex items-center gap-1">+1 this week</div>
             </div>
 
-            <div className="gradient-border-animated p-6 sm:p-8 flex flex-col items-center justify-center text-center group hover:scale-[1.02] transition-transform duration-500 rounded-3xl">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-accent-purple/20 to-accent-pink/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(139,92,246,0.2)]">
-                <Mail className="text-accent-purple" size={24} />
+            <div className="glass-panel p-6 spotlight-border relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10 flex items-center justify-between mb-4">
+                <span className="text-gray-400 font-medium">Emails Sent</span>
+                <Mail size={20} className="text-accent-purple" />
               </div>
-              <div className="text-4xl font-bold text-white mb-2 tracking-tight"><AnimatedCounter end={142} /></div>
-              <p className="text-gray-400 text-sm font-medium">Emails Sent</p>
+              <div className="relative z-10 text-4xl font-bold text-white mb-1"><AnimatedCounter end={142} /></div>
+              <div className="relative z-10 text-[13px] text-accent-purple flex items-center gap-1">+28 today</div>
             </div>
 
-            <div className="gradient-border-animated p-6 sm:p-8 flex flex-col items-center justify-center text-center group hover:scale-[1.02] transition-transform duration-500 rounded-3xl">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-accent-pink/20 to-accent-cyan/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(236,72,153,0.2)]">
-                <BarChart2 className="text-accent-pink" size={24} />
+            <div className="glass-panel p-6 spotlight-border relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10 flex items-center justify-between mb-4">
+                <span className="text-gray-400 font-medium">Interview Rate</span>
+                <BarChart2 size={20} className="text-accent-cyan" />
               </div>
-              <div className="text-4xl font-bold text-white mb-2 tracking-tight"><AnimatedCounter end={12} />%</div>
-              <p className="text-gray-400 text-sm font-medium">Interview Rate</p>
+              <div className="relative z-10 text-4xl font-bold text-white mb-1"><AnimatedCounter end={12} />%</div>
+              <div className="relative z-10 text-[13px] text-accent-cyan flex items-center gap-1">+4% from average</div>
             </div>
           </div>
 
