@@ -31,13 +31,13 @@ export function Step13Auth() {
         </svg>
       </div>
       
-      <WordReveal className="text-[clamp(1.75rem,4vw,2.5rem)] font-medium tracking-[-0.03em] mb-3 text-white" text="Your workspace is ready." />
-      <p className="text-[16px] text-gray-400 mb-10">Connect Google to continue.</p>
+      <WordReveal className="text-[clamp(1.75rem,4vw,2.5rem)] font-medium tracking-[-0.03em] mb-3 text-gray-900" text="Your workspace is ready." />
+      <p className="text-[16px] text-gray-500 mb-10">Connect Google to continue.</p>
       
       <div className="flex flex-col items-center gap-4 w-full max-w-sm">
         <button 
           onClick={handleLogin}
-          className="w-full flex items-center justify-center gap-3 bg-white border border-gray-200 text-white px-6 py-4 rounded-full text-[15px] font-medium hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
+          className="w-full flex items-center justify-center gap-3 bg-white border border-gray-200 text-gray-900 px-6 py-4 rounded-full text-[15px] font-medium hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
         >
           <img src="https://www.google.com/favicon.ico" alt="Google" width="18" height="18" />
           Continue with Google
@@ -45,7 +45,7 @@ export function Step13Auth() {
 
         <button 
           onClick={handleSkip}
-          className="text-[14px] text-gray-400 hover:text-white font-medium transition-colors mt-2"
+          className="text-[14px] text-gray-400 hover:text-gray-900 font-medium transition-colors mt-2"
         >
           Skip for now
         </button>

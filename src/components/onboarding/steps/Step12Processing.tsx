@@ -66,7 +66,7 @@ export function Step12Processing() {
             className="absolute inset-0 rounded-full border-2 border-gray-200 border-t-gray-900 shadow-sm"
           />
         </div>
-        <span className="text-3xl font-light text-white">{progress}%</span>
+        <span className="text-3xl font-light text-gray-900">{progress}%</span>
       </div>
 
       <div className="h-10 relative w-full overflow-hidden text-center">
@@ -77,7 +77,7 @@ export function Step12Processing() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-x-0 flex items-center justify-center gap-3 text-xl text-gray-300"
+            className="absolute inset-x-0 flex items-center justify-center gap-3 text-xl text-gray-700"
           >
             <Check className="text-green-400" /> {steps[currentStep]}
           </motion.div>
