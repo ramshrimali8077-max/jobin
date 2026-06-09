@@ -15,10 +15,12 @@ export default {
         accent: {
           blue: "#3B82F6",
           purple: "#8B5CF6",
-          cyan: "#06B6D4"
+          cyan: "#06B6D4",
+          indigo: "#6366F1",
+          pink: "#EC4899",
         },
         success: "#10B981",
-        background: "#020617", // Deep slate for premium look
+        background: "#050816", // Deeper void background
         glass: "rgba(255, 255, 255, 0.03)",
         glassHover: "rgba(255, 255, 255, 0.08)",
       },
@@ -45,6 +47,9 @@ export default {
         },
         shimmer: {
           "100%": { transform: "translateX(100%)" }
+        },
+        spinSlow: {
+          "100%": { transform: "rotate(360deg)" }
         }
       },
       animation: {
@@ -52,6 +57,7 @@ export default {
         'aurora': 'aurora 15s ease-in-out infinite',
         'blob': 'blob 10s infinite alternate',
         'shimmer': 'shimmer 2s infinite',
+        'spin-slow': 'spinSlow 4s linear infinite',
       }
     },
   },
