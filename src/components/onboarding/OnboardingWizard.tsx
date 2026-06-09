@@ -87,7 +87,7 @@ export function OnboardingWizard() {
           {Array.from({ length: totalSteps }).map((_, i) => (
             <div key={i} className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
               <motion.div 
-                className="h-full bg-gray-900"
+                className="h-full bg-gradient-to-r from-[#2B83E4] to-[#D949A6]"
                 initial={{ width: 0 }}
                 animate={{ width: i < step ? '100%' : '0%' }}
                 transition={{ duration: 0.3 }}
@@ -101,14 +101,14 @@ export function OnboardingWizard() {
       <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between shrink-0 bg-[#FDFDFD]/90 backdrop-blur-sm">
         <Link to="/" className="flex items-center gap-3 font-semibold text-[15px] text-gray-900 hover:opacity-80 transition-opacity">
           <img src="/logo-icon.png" alt="Logo" className="h-8 w-auto object-contain mix-blend-multiply shrink-0" />
-          <span className="hidden sm:inline">Job Mail Loop</span>
+          <span className="hidden sm:inline bg-gradient-to-r from-[#2B83E4] via-[#7B46D1] to-[#D949A6] text-transparent bg-clip-text font-bold">Job Mail Loop</span>
         </Link>
         
         {step <= totalSteps && (
           <div className="flex items-center gap-4">
             <button 
               onClick={() => navigate('/dashboard')}
-              className="bg-gray-900 hover:bg-gray-800 text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+              className="bg-gradient-to-r from-[#2B83E4] to-[#7B46D1] hover:from-[#3B93F4] hover:to-[#8B56E1] shadow-sm hover:shadow-md text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-all duration-300"
             >
               Skip Setup
             </button>

@@ -58,7 +58,7 @@ export function Hero() {
       <div className="relative z-20 w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 pb-14 sm:pb-16 lg:pb-20 flex flex-col items-center text-center">
         <div className="mb-6 sm:mb-10 flex items-center justify-center gap-3 sm:gap-4">
           <img src="/logo-icon.png" alt="Job Mail Loop Logo" className="w-[48px] h-[48px] sm:w-[68px] sm:h-[68px] object-contain mix-blend-multiply drop-shadow-sm shrink-0" />
-          <span className="text-[24px] sm:text-[30px] font-bold text-gray-900 tracking-tight leading-none">Job Mail Loop</span>
+          <span className="text-[24px] sm:text-[30px] font-bold tracking-tight leading-none bg-gradient-to-r from-[#2B83E4] via-[#7B46D1] to-[#D949A6] text-transparent bg-clip-text">Job Mail Loop</span>
         </div>
 
         <h1 className="text-gray-900 font-medium tracking-[-0.03em] leading-[1.08] text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)]">
@@ -70,14 +70,14 @@ export function Hero() {
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
           <button 
             onClick={() => navigate('/onboarding')}
-            className="group/btn bg-gray-900 hover:bg-gray-700 text-white text-[13px] sm:text-[14px] font-medium rounded-full pl-5 sm:pl-6 pr-2 py-2 flex items-center gap-3 transition-colors duration-300"
+            className="group/btn bg-gradient-to-r from-[#2B83E4] to-[#7B46D1] hover:from-[#3B93F4] hover:to-[#8B56E1] shadow-md hover:shadow-lg text-white text-[13px] sm:text-[14px] font-medium rounded-full pl-5 sm:pl-6 pr-2 py-2 flex items-center gap-3 transition-all duration-300"
           >
             <div className="overflow-hidden h-[20px] sm:h-[22px] flex flex-col justify-start">
               <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover/btn:-translate-y-[20px] sm:group-hover/btn:-translate-y-[22px] leading-[20px] sm:leading-[22px]">Start with Google</span>
               <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover/btn:-translate-y-[20px] sm:group-hover/btn:-translate-y-[22px] leading-[20px] sm:leading-[22px]">Start with Google</span>
             </div>
-            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover/btn:rotate-0 shrink-0">
-              <Mail size={14} className="text-gray-900" />
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover/btn:rotate-0 shrink-0">
+              <Mail size={14} className="text-white" />
             </div>
           </button>
 
