@@ -25,7 +25,7 @@ const stepsList = [
 ];
 
 export function OnboardingWizard() {
-  const { step, prevStep, isNavigating } = useOnboardingStore();
+  const { step, prevStep } = useOnboardingStore();
   const navigate = useNavigate();
   const bottomRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -124,29 +124,12 @@ export function OnboardingWizard() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: isActive ? [0.98, 1.02, 1] : 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                className={`w-full py-8 transition-all duration-700 ${!isActive ? 'opacity-50 pointer-events-none scale-[0.98]' : ''}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className={`w-full py-8 transition-opacity duration-300 ${!isActive ? 'opacity-50 pointer-events-none' : ''}`}
               >
-                <div className="relative">
-                  <div className={`transition-all duration-500 ${isNavigating && isActive ? 'opacity-50 blur-[2px] pointer-events-none' : ''}`}>
-                    <Component />
-                  </div>
-                  
-                  {isNavigating && isActive && (
-                    <div className="absolute inset-0 flex items-center justify-center z-50">
-                      <motion.div 
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="bg-white/90 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-indigo-100 px-6 py-3 rounded-full flex items-center gap-3"
-                      >
-                        <div className="w-5 h-5 border-2 border-brand-purple border-t-transparent rounded-full animate-spin" />
-                        <span className="bg-gradient-to-r from-[#2B83E4] via-[#7B46D1] to-[#D949A6] text-transparent bg-clip-text font-semibold text-sm">Saving...</span>
-                      </motion.div>
-                    </div>
-                  )}
-                </div>
+                <Component />
                 
                 {/* Previous Button inside active step */}
                 {isActive && index > 0 && index < totalSteps && (

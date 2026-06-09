@@ -3,7 +3,6 @@ import { create } from 'zustand';
 interface OnboardingState {
   isOpen: boolean;
   step: number;
-  isNavigating: boolean;
   openOnboarding: () => void;
   closeOnboarding: () => void;
   nextStep: () => void;
@@ -31,15 +30,9 @@ interface OnboardingState {
 export const useOnboardingStore = create<OnboardingState>((set) => ({
   isOpen: false,
   step: 1,
-  isNavigating: false,
   openOnboarding: () => set({ isOpen: true, step: 1 }),
   closeOnboarding: () => set({ isOpen: false }),
-  nextStep: () => {
-    set({ isNavigating: true });
-    setTimeout(() => {
-      set((state) => ({ step: state.step + 1, isNavigating: false }));
-    }, 500);
-  },
+  nextStep: () => set((state) => ({ step: state.step + 1 })),
   prevStep: () => set((state) => ({ step: Math.max(1, state.step - 1) })),
   setStep: (step) => set({ step }),
   

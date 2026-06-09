@@ -46,8 +46,8 @@ export function Navbar() {
                 <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-[20px] leading-[20px]">Get Started Free</span>
                 <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-[20px] leading-[20px]">Get Started Free</span>
               </div>
-              <div className="w-6 h-6 bg-white/80 backdrop-blur-md/20 rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover:rotate-0">
-                <ArrowRight size={12} className="text-white" />
+              <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover:rotate-0">
+                <ArrowRight size={12} className="text-[#7B46D1]" />
               </div>
             </button>
           </div>
@@ -94,8 +94,8 @@ export function Navbar() {
             <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-[24px] leading-[24px]">Start for free</span>
             <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-[24px] leading-[24px]">Start for free</span>
           </div>
-          <div className="w-8 h-8 bg-white/80 backdrop-blur-md/20 rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover:rotate-0">
-            <ArrowRight size={14} className="text-white" />
+          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover:rotate-0">
+            <ArrowRight size={14} className="text-[#7B46D1]" />
           </div>
         </button>
       </div>
