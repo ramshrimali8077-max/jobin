@@ -1,4 +1,4 @@
-import { Mail } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
 
