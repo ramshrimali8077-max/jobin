@@ -20,7 +20,7 @@ export function Step9Aggressiveness() {
 
   return (
     <div className="flex flex-col items-center w-full max-w-2xl mx-auto">
-      <WordReveal className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center" text="How aggressively should Job Mail Loop reach out?" />
+      <WordReveal className="text-[26px] leading-[1.2] sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-12 text-center tracking-tight" text="How aggressively should Job Mail Loop reach out?" />
       <AnswerReveal>
 
       <div className="flex flex-col gap-4 w-full">

@@ -9,7 +9,7 @@ export function Step11Review() {
 
   return (
     <div className="flex flex-col items-center w-full max-w-xl mx-auto">
-      <WordReveal className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center" text="Review Profile" />
+      <WordReveal className="text-[26px] leading-[1.2] sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 text-center tracking-tight" text="Review Profile" />
       <AnswerReveal>
 
       <div className="w-full bg-white border border-gray-200 rounded-3xl p-8 space-y-5 mb-10">

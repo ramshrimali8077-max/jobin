@@ -117,8 +117,8 @@ export function OnboardingWizard() {
       </header>
 
       {/* Content Area (Scrollable) */}
-      <div className="relative z-10 flex-1 overflow-y-auto px-6 pb-32">
-        <div className="w-full max-w-[700px] mx-auto flex flex-col gap-8 pt-8">
+      <div className="relative z-10 flex-1 overflow-y-auto px-4 sm:px-6 pb-24 sm:pb-32">
+        <div className="w-full max-w-[700px] mx-auto flex flex-col gap-6 sm:gap-8 pt-6 sm:pt-8">
           {stepsList.slice(0, step).map((Component, index) => {
             const isActive = index + 1 === step;
             return (
