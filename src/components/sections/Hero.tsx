@@ -55,8 +55,8 @@ export function Hero() {
       <div className="flex-1" />
 
       {/* CONTENT */}
-      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 pb-14 sm:pb-16 lg:pb-20">
-        <div className="mb-6 sm:mb-10 flex items-center justify-start gap-3 sm:gap-4">
+      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 pb-14 sm:pb-16 lg:pb-20 flex flex-col items-center text-center">
+        <div className="mb-6 sm:mb-10 flex items-center justify-center gap-3 sm:gap-4">
           <img src="/logo-icon.png" alt="Job Mail Loop Logo" className="w-[48px] h-[48px] sm:w-[68px] sm:h-[68px] object-contain mix-blend-multiply drop-shadow-sm shrink-0" />
           <span className="text-[24px] sm:text-[30px] font-bold text-gray-900 tracking-tight leading-none">Job Mail Loop</span>
         </div>
@@ -67,7 +67,7 @@ export function Hero() {
           what actually matters.
         </h1>
 
-        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
           <button 
             onClick={() => navigate('/onboarding')}
             className="group/btn bg-gray-900 hover:bg-gray-700 text-white text-[13px] sm:text-[14px] font-medium rounded-full pl-5 sm:pl-6 pr-2 py-2 flex items-center gap-3 transition-colors duration-300"
