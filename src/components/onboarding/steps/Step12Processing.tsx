@@ -63,10 +63,10 @@ export function Step12Processing() {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 rounded-full border-2 border-gray-200 border-t-gray-900 shadow-sm"
+            className="absolute inset-0 rounded-full border-2 border-indigo-100 border-t-gray-900 shadow-sm"
           />
         </div>
-        <span className="text-3xl font-light text-gray-900">{progress}%</span>
+        <span className="text-3xl font-light text-brand-dark">{progress}%</span>
       </div>
 
       <div className="h-10 relative w-full overflow-hidden text-center">

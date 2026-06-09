@@ -7,7 +7,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif'],
+      },
+      colors: {
+        brand: {
+          blue: '#2B83E4',
+          purple: '#7B46D1',
+          pink: '#D949A6',
+          dark: '#1E1B4B'
+        }
       },
       keyframes: {
         fadeInSlideUp: {

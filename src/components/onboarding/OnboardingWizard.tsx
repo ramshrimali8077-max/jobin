@@ -62,7 +62,7 @@ export function OnboardingWizard() {
   }, [step]);
 
   return (
-    <div ref={containerRef} className="h-[100dvh] w-full bg-[#FDFDFD] text-gray-900 flex flex-col font-sans overflow-hidden relative group">
+    <div ref={containerRef} className="h-[100dvh] w-full bg-indigo-50/40 text-brand-dark flex flex-col font-sans overflow-hidden relative group">
       {/* STATIC FALLBACK GRADIENT */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.15] mix-blend-multiply bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-200 via-[#FDFDFD] to-[#FDFDFD]" />
       
@@ -85,7 +85,7 @@ export function OnboardingWizard() {
       {step <= totalSteps && (
         <div className="absolute top-0 left-0 w-full h-1 z-50 flex gap-1 px-1 pt-1">
           {Array.from({ length: totalSteps }).map((_, i) => (
-            <div key={i} className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
+            <div key={i} className="flex-1 h-1 bg-indigo-100/50 rounded-full overflow-hidden">
               <motion.div 
                 className="h-full bg-gradient-to-r from-[#2B83E4] to-[#D949A6]"
                 initial={{ width: 0 }}
@@ -98,8 +98,8 @@ export function OnboardingWizard() {
       )}
 
       {/* Header (Fixed) */}
-      <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between shrink-0 bg-[#FDFDFD]/90 backdrop-blur-sm">
-        <Link to="/" className="flex items-center gap-3 font-semibold text-[15px] text-gray-900 hover:opacity-80 transition-opacity">
+      <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between shrink-0 bg-indigo-50/40/90 backdrop-blur-sm">
+        <Link to="/" className="flex items-center gap-3 font-semibold text-[15px] text-brand-dark hover:opacity-80 transition-opacity">
           <img src="/logo-icon.png" alt="Logo" className="h-8 w-auto object-contain mix-blend-multiply shrink-0" />
           <span className="hidden sm:inline bg-gradient-to-r from-[#2B83E4] via-[#7B46D1] to-[#D949A6] text-transparent bg-clip-text font-bold">Job Mail Loop</span>
         </Link>
@@ -124,9 +124,9 @@ export function OnboardingWizard() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: isActive ? [0.98, 1.02, 1] : 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
                 className={`w-full py-8 transition-all duration-700 ${!isActive ? 'opacity-50 pointer-events-none scale-[0.98]' : ''}`}
               >
                 <Component />
@@ -136,7 +136,7 @@ export function OnboardingWizard() {
                   <div className="mt-12 flex justify-center">
                     <button 
                       onClick={prevStep}
-                      className="flex items-center gap-2 text-[14px] text-gray-400 hover:text-gray-900 transition-colors font-medium pointer-events-auto"
+                      className="flex items-center gap-2 text-[14px] text-brand-dark/40 hover:text-brand-dark transition-colors font-medium pointer-events-auto"
                     >
                       <ChevronLeft size={18} />
                       Go Back

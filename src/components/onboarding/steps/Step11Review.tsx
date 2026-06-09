@@ -9,39 +9,39 @@ export function Step11Review() {
 
   return (
     <div className="flex flex-col items-center w-full max-w-xl mx-auto">
-      <WordReveal className="text-[26px] leading-[1.2] sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 text-center tracking-tight" text="Review Profile" />
+      <WordReveal className="text-[26px] leading-[1.2] sm:text-3xl md:text-4xl font-bold text-brand-dark mb-6 sm:mb-8 text-center tracking-tight" text="Review Profile" />
       <AnswerReveal>
 
-      <div className="w-full bg-white border border-gray-200 rounded-3xl p-8 space-y-5 mb-10">
+      <div className="w-full bg-white/80 backdrop-blur-md border border-indigo-100 rounded-3xl p-8 space-y-5 mb-10">
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">Resume</span>
-          <span className="text-gray-900 font-medium flex items-center gap-2">{data.resumeUploaded ? <><Check size={16} className="text-green-400"/> Uploaded</> : 'Not uploaded'}</span>
+          <span className="text-brand-dark/60">Resume</span>
+          <span className="text-brand-dark font-medium flex items-center gap-2">{data.resumeUploaded ? <><Check size={16} className="text-green-400"/> Uploaded</> : 'Not uploaded'}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">LinkedIn</span>
-          <span className="text-gray-900 font-medium flex items-center gap-2">{data.linkedinConnected ? <><Check size={16} className="text-green-400"/> Connected</> : 'Not connected'}</span>
+          <span className="text-brand-dark/60">LinkedIn</span>
+          <span className="text-brand-dark font-medium flex items-center gap-2">{data.linkedinConnected ? <><Check size={16} className="text-green-400"/> Connected</> : 'Not connected'}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">Role</span>
-          <span className="text-gray-900 font-medium flex items-center gap-2"><Check size={16} className="text-green-400"/> {data.role}</span>
+          <span className="text-brand-dark/60">Role</span>
+          <span className="text-brand-dark font-medium flex items-center gap-2"><Check size={16} className="text-green-400"/> {data.role}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">Experience</span>
-          <span className="text-gray-900 font-medium flex items-center gap-2"><Check size={16} className="text-green-400"/> {data.experience}</span>
+          <span className="text-brand-dark/60">Experience</span>
+          <span className="text-brand-dark font-medium flex items-center gap-2"><Check size={16} className="text-green-400"/> {data.experience}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">Locations</span>
-          <span className="text-gray-900 font-medium flex items-center gap-2"><Check size={16} className="text-green-400"/> {data.targetLocations.length} selected</span>
+          <span className="text-brand-dark/60">Locations</span>
+          <span className="text-brand-dark font-medium flex items-center gap-2"><Check size={16} className="text-green-400"/> {data.targetLocations.length} selected</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">Preferences</span>
-          <span className="text-gray-900 font-medium flex items-center gap-2"><Check size={16} className="text-green-400"/> {data.workEnvironment}</span>
+          <span className="text-brand-dark/60">Preferences</span>
+          <span className="text-brand-dark font-medium flex items-center gap-2"><Check size={16} className="text-green-400"/> {data.workEnvironment}</span>
         </div>
       </div>
 
       <button 
         onClick={nextStep}
-        className="w-full py-4 bg-white text-black hover:bg-gray-200 rounded-full font-medium text-lg transition-all"
+        className="w-full py-4 bg-white/80 backdrop-blur-md text-black hover:bg-gray-200 rounded-full font-medium text-lg transition-all"
       >
         Build My Job Search Engine
       </button>
