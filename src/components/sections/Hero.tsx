@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
 
@@ -74,9 +74,12 @@ export function Hero() {
             onClick={() => navigate('/onboarding')}
             className="group/btn bg-gradient-to-r from-[#2B83E4] to-[#7B46D1] hover:from-[#3B93F4] hover:to-[#8B56E1] shadow-md hover:shadow-lg text-white text-[13px] sm:text-[14px] font-medium rounded-full pl-5 sm:pl-6 pr-2 py-2 flex items-center gap-3 transition-all duration-300"
           >
-            Get started for free
-            <div className="bg-white rounded-full p-2 group-hover/btn:bg-white/90 transition-colors">
-              <ArrowRight size={16} className="text-[#7B46D1]" />
+            <div className="overflow-hidden h-[20px] sm:h-[22px] flex flex-col justify-start">
+              <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover/btn:-translate-y-[20px] sm:group-hover/btn:-translate-y-[22px] leading-[20px] sm:leading-[22px]">Start with Google</span>
+              <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover/btn:-translate-y-[20px] sm:group-hover/btn:-translate-y-[22px] leading-[20px] sm:leading-[22px]">Start with Google</span>
+            </div>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover/btn:rotate-0 shrink-0">
+              <Mail size={14} className="text-[#7B46D1]" />
             </div>
           </button>
 
