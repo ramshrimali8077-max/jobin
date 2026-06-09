@@ -29,7 +29,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    if (!auth) {
+      setLoading(false);
+      return;
+    }
+    const unsubscribe = onAuthStateChanged(auth as any, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
@@ -37,18 +41,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const loginWithGoogle = async () => {
-    await signInWithPopup(auth, googleProvider);
+    if (!auth) return;
+    await signInWithPopup(auth as any, googleProvider as any);
   };
 
   const loginWithEmail = async (email: string, pass: string) => {
-    await signInWithEmailAndPassword(auth, email, pass);
+    if (!auth) return;
+    await signInWithEmailAndPassword(auth as any, email, pass);
   };
 
   const signupWithEmail = async (email: string, pass: string) => {
-    await createUserWithEmailAndPassword(auth, email, pass);
+    if (!auth) return;
+    await createUserWithEmailAndPassword(auth as any, email, pass);
   };
 
-  const logout = () => signOut(auth);
+  const logout = () => {
+    if (!auth) return Promise.resolve();
+    return signOut(auth as any);
+  };
 
   return (
     <AuthContext.Provider value={{ 

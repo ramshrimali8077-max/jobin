@@ -1,101 +1,102 @@
-import { useState } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Compass, Shield, CreditCard, Sparkles, ArrowRight } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const { openLoginModal } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Features', icon: Sparkles, hash: '#features' },
+    { name: 'How It Works', icon: Compass, hash: '#how-it-works' },
+    { name: 'Security', icon: Shield, hash: '#security' },
+    { name: 'Pricing', icon: CreditCard, hash: '#pricing' },
+  ];
 
   return (
-    <div className="absolute inset-x-0 top-0 z-50 pt-2 sm:pt-3 px-2 sm:px-3">
-      <div className="max-w-[1440px] mx-auto relative">
-        <nav className="bg-white rounded-full p-[5px] flex items-center justify-between shadow-sm">
-          {/* LEFT */}
-          <div className="flex items-center gap-6">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-900 rounded-full flex items-center justify-center shrink-0">
-              <span className="text-white text-[10px] sm:text-[11px] font-bold tracking-tight">JM</span>
-            </div>
-            <div className="hidden md:flex items-center gap-6">
-              {['Features', 'Templates', 'How It Works', 'Security', 'Pricing'].map(link => (
-                <a key={link} href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-[14px] text-gray-900 hover:text-gray-500 transition-colors duration-300">
-                  {link}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT (Desktop) */}
-          <div className="hidden md:flex items-center gap-6 pr-2">
-            <div className="hidden lg:flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-[13px] text-gray-600">Now in Public Beta</span>
-            </div>
-            <button onClick={openLoginModal} className="text-[13px] text-gray-600 hover:text-gray-900">
-              Log In
-            </button>
-            <button 
-              onClick={() => navigate('/onboarding')}
-              className="group bg-gray-900 text-white text-[13px] font-medium rounded-full pl-5 pr-2 py-2 flex items-center gap-3"
-            >
-              <div className="overflow-hidden h-[20px] flex flex-col justify-start">
-                <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-[20px] leading-[20px]">Get Started Free</span>
-                <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-[20px] leading-[20px]">Get Started Free</span>
+    <>
+      {/* DESKTOP TOP NAVIGATION */}
+      <div className={`hidden md:flex fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-6'}`}>
+        <div className="max-w-5xl mx-auto w-full px-6">
+          <nav className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'glass-panel px-4 py-3' : 'px-2 py-2'}`}>
+            {/* LEFT - LOGO */}
+            <div className="flex items-center gap-8">
+              <div onClick={() => window.scrollTo({top: 0})} className="cursor-pointer flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent-blue to-accent-purple flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.3)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-500">
+                  <span className="text-white text-[13px] font-bold tracking-tight">JM</span>
+                </div>
+                <span className={`font-semibold tracking-tight transition-opacity duration-300 ${scrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100 text-white'}`}>
+                  Job Mail Loop
+                </span>
               </div>
-              <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover:rotate-0">
-                <ArrowRight size={12} className="text-gray-900" />
+              
+              {/* DESKTOP LINKS */}
+              <div className="flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/10 backdrop-blur-md">
+                {navLinks.map(link => (
+                  <a key={link.name} href={link.hash} className="text-[13px] font-medium text-gray-300 hover:text-white px-4 py-1.5 rounded-full hover:bg-white/10 transition-all duration-300">
+                    {link.name}
+                  </a>
+                ))}
               </div>
-            </button>
-          </div>
+            </div>
 
-          {/* MOBILE TOGGLE */}
+            {/* RIGHT - ACTIONS */}
+            <div className="flex items-center gap-4">
+              <button onClick={openLoginModal} className="text-[13px] font-medium text-gray-300 hover:text-white transition-colors">
+                Log In
+              </button>
+              <button 
+                onClick={() => navigate('/onboarding')}
+                className="spotlight-border bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-md text-white text-[13px] font-medium rounded-full px-5 py-2 flex items-center gap-2 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] active:scale-95"
+              >
+                <span>Get Started Free</span>
+                <ArrowRight size={14} className="text-accent-cyan" />
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      {/* MOBILE BOTTOM NAVIGATION (Native App Feel) */}
+      <div className="md:hidden fixed bottom-6 inset-x-4 z-50">
+        <nav className="glass-panel flex items-center justify-between p-2 pb-2 px-4 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            const isActive = location.hash === link.hash;
+            return (
+              <a 
+                key={link.name} 
+                href={link.hash}
+                className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 active:scale-90 relative ${isActive ? 'text-accent-blue' : 'text-gray-400 hover:text-gray-200'}`}
+              >
+                {isActive && <div className="absolute inset-0 bg-accent-blue/10 rounded-xl blur-md" />}
+                <Icon size={20} strokeWidth={isActive ? 2.5 : 2} className="relative z-10 mb-1" />
+                <span className="text-[10px] font-medium relative z-10">{link.name}</span>
+              </a>
+            );
+          })}
+          
           <button 
-            className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-gray-900 rounded-full flex items-center justify-center mr-1"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => navigate('/onboarding')}
+            className="flex flex-col items-center justify-center p-2 rounded-xl text-accent-cyan hover:text-accent-cyan/80 transition-all duration-300 active:scale-90 relative"
           >
-            {isOpen ? <X size={16} className="text-white" /> : <Menu size={16} className="text-white" />}
+            <div className="absolute inset-0 bg-accent-cyan/10 rounded-xl blur-md animate-pulse" />
+            <ArrowRight size={20} strokeWidth={2.5} className="relative z-10 mb-1" />
+            <span className="text-[10px] font-medium relative z-10">Start</span>
           </button>
         </nav>
       </div>
-
-      {/* MOBILE OVERLAY */}
-      <div 
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setIsOpen(false)}
-      />
-      <div 
-        className={`fixed bottom-0 left-3 right-3 bg-white rounded-2xl p-6 transform transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] z-50 ${isOpen ? 'translate-y-[-12px]' : 'translate-y-full'}`}
-      >
-        <div className="flex items-center gap-2 mb-8">
-          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-          <span className="text-[13px] text-gray-600">Now in Public Beta</span>
-        </div>
-        <div className="flex flex-col gap-4 mb-8">
-          {['Features', 'Templates', 'How It Works', 'Security', 'Pricing'].map(link => (
-            <a 
-              key={link} 
-              href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} 
-              onClick={() => setIsOpen(false)}
-              className="text-[28px] sm:text-[32px] font-medium text-gray-900"
-            >
-              {link}
-            </a>
-          ))}
-        </div>
-        <button 
-          onClick={() => { setIsOpen(false); navigate('/onboarding'); }}
-          className="group w-full bg-gray-900 text-white text-[15px] font-medium rounded-full pl-6 pr-2 py-3 flex items-center justify-between"
-        >
-          <div className="overflow-hidden h-[24px] flex flex-col justify-start">
-            <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-[24px] leading-[24px]">Start for free</span>
-            <span className="transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-translate-y-[24px] leading-[24px]">Start for free</span>
-          </div>
-          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] -rotate-45 group-hover:rotate-0">
-            <ArrowRight size={14} className="text-gray-900" />
-          </div>
-        </button>
-      </div>
-    </div>
+    </>
   );
 }

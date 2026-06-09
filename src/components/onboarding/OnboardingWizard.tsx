@@ -62,21 +62,20 @@ export function OnboardingWizard() {
   }, [step]);
 
   return (
-    <div ref={containerRef} className="h-[100dvh] w-full bg-[#FDFDFD] text-gray-900 flex flex-col font-sans overflow-hidden relative group">
-      {/* STATIC FALLBACK GRADIENT */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.15] mix-blend-multiply bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-200 via-[#FDFDFD] to-[#FDFDFD]" />
+    <div ref={containerRef} className="h-[100dvh] w-full bg-background text-white flex flex-col font-sans overflow-hidden relative group">
+      {/* NOISE TEXTURE */}
+      <div className="absolute inset-0 z-0 noise-bg mix-blend-overlay pointer-events-none opacity-30"></div>
       
       {/* COLORFUL MOUSE-TRACKING GLOW */}
       <div 
         ref={glowRef}
-        className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-multiply"
+        className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-screen"
         style={{
           background: `radial-gradient(
-            1200px circle at var(--x, 50%) var(--y, 50%),
-            rgba(124, 58, 237, 0.15) 0%,
-            rgba(229, 72, 168, 0.12) 25%,
-            rgba(37, 99, 235, 0.10) 50%,
-            transparent 90%
+            800px circle at var(--x, 50%) var(--y, 50%),
+            rgba(59, 130, 246, 0.15) 0%,
+            rgba(139, 92, 246, 0.1) 25%,
+            transparent 70%
           )`
         }}
       />
@@ -85,9 +84,9 @@ export function OnboardingWizard() {
       {step <= totalSteps && (
         <div className="absolute top-0 left-0 w-full h-1 z-50 flex gap-1 px-1 pt-1">
           {Array.from({ length: totalSteps }).map((_, i) => (
-            <div key={i} className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
+            <div key={i} className="flex-1 h-1 bg-white/5 rounded-full overflow-hidden">
               <motion.div 
-                className="h-full bg-gray-900"
+                className="h-full bg-gradient-to-r from-accent-blue to-accent-cyan"
                 initial={{ width: 0 }}
                 animate={{ width: i < step ? '100%' : '0%' }}
                 transition={{ duration: 0.3 }}
@@ -98,17 +97,19 @@ export function OnboardingWizard() {
       )}
 
       {/* Header (Fixed) */}
-      <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between shrink-0 bg-[#FDFDFD]/90 backdrop-blur-sm">
-        <Link to="/" className="flex items-center gap-3 font-semibold text-[15px] text-gray-900 hover:opacity-80 transition-opacity">
-          <img src="/logo-icon.png" alt="Logo" className="h-8 w-auto object-contain mix-blend-multiply shrink-0" />
-          <span className="hidden sm:inline">Job Mail Loop</span>
+      <header className="relative z-10 w-full px-6 py-4 flex items-center justify-between shrink-0 glass-panel border-x-0 border-t-0 rounded-none shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+        <Link to="/" className="flex items-center gap-3 font-semibold text-[15px] text-white hover:opacity-80 transition-opacity group/logo">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-accent-blue to-accent-purple flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover/logo:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-all">
+            <span className="text-white text-[10px] font-bold tracking-tight">JM</span>
+          </div>
+          <span className="hidden sm:inline tracking-tight">Job Mail Loop</span>
         </Link>
         
         {step <= totalSteps && (
           <div className="flex items-center gap-4">
             <button 
               onClick={() => navigate('/dashboard')}
-              className="bg-gray-900 hover:bg-gray-800 text-white text-[13px] font-medium px-4 py-2 rounded-lg transition-colors"
+              className="bg-white/5 hover:bg-white/10 text-white border border-white/10 text-[13px] font-medium px-4 py-2 rounded-full transition-all duration-300"
             >
               Skip Setup
             </button>
@@ -127,16 +128,19 @@ export function OnboardingWizard() {
                 initial={{ opacity: 0, y: 40, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-                className={`w-full py-8 transition-all duration-700 ${!isActive ? 'opacity-50 pointer-events-none scale-[0.98]' : ''}`}
+                className={`w-full py-8 transition-all duration-700 relative ${!isActive ? 'opacity-30 pointer-events-none scale-[0.98] blur-[2px]' : 'glass-panel p-6 sm:p-10 spotlight-border mt-4'}`}
               >
-                <Component />
+                {isActive && <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/5 to-transparent rounded-3xl pointer-events-none" />}
+                <div className="relative z-10">
+                  <Component />
+                </div>
                 
                 {/* Previous Button inside active step */}
                 {isActive && index > 0 && index < totalSteps && (
-                  <div className="mt-12 flex justify-center">
+                  <div className="mt-12 flex justify-center relative z-10">
                     <button 
                       onClick={prevStep}
-                      className="flex items-center gap-2 text-[14px] text-gray-400 hover:text-gray-900 transition-colors font-medium pointer-events-auto"
+                      className="flex items-center gap-2 text-[14px] text-gray-400 hover:text-white transition-colors font-medium pointer-events-auto"
                     >
                       <ChevronLeft size={18} />
                       Go Back
